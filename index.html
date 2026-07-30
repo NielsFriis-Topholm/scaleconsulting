@@ -878,11 +878,8 @@ footer .logo{color:#F2F3F4}
         <p>Ingen forpligtelser og intet salgspres. Analysen er jeres — uanset hvad I vælger.</p>
       </div>
     </div>
-    <form class="form-shell reveal" action="https://api.web3forms.com/submit" method="POST">
-      <!-- LAUNCH: Opret gratis nøgle på web3forms.com og indsæt den herunder -->
-      <input type="hidden" name="access_key" value="INDSÆT-JERES-ACCESS-KEY-HER">
-      <input type="hidden" name="subject" value="Ny vækstanalyse-forespørgsel fra scaleconsulting.dk">
-      <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
+    <form class="form-shell reveal" id="leadform" novalidate>
+      <input type="text" name="botcheck" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true">
       <div class="f-grid">
         <div class="f-field">
           <label for="f-navn">Dit navn <span class="req">*</span></label>
@@ -967,6 +964,7 @@ footer .logo{color:#F2F3F4}
       </div>
       <button class="btn" type="submit">Send og book vækstanalyse <span class="arr">→</span></button>
       <p class="f-note">Vi vender tilbage hurtigst muligt — typisk inden for én arbejdsdag.</p>
+      <p class="f-note" id="leadmsg" role="status" style="display:none;font-weight:600"></p>
     </form>
   </div>
 </section>
@@ -1025,6 +1023,38 @@ const io = new IntersectionObserver((entries)=>{
   entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
 },{threshold:.12});
 document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+// Kontaktformular -> /api/lead -> Slack
+const form = document.getElementById('leadform');
+if(form){
+  form.addEventListener('submit', async (e)=>{
+    e.preventDefault();
+    const btn = form.querySelector('button[type="submit"]');
+    const msg = document.getElementById('leadmsg');
+    // simpel validering af påkrævede felter
+    if(!form.reportValidity()) return;
+    btn.disabled = true; btn.textContent = 'Sender…';
+    const data = Object.fromEntries(new FormData(form).entries());
+    try{
+      const r = await fetch('/api/lead', {
+        method:'POST',
+        headers:{'Content-Type':'application/json'},
+        body: JSON.stringify(data)
+      });
+      if(!r.ok) throw new Error('Serverfejl');
+      form.reset();
+      msg.style.display='block';
+      msg.style.color='#3A6B55';
+      msg.textContent = 'Tak! Vi har modtaget din henvendelse og vender tilbage hurtigst muligt.';
+      btn.textContent = 'Sendt ✓';
+    }catch(err){
+      msg.style.display='block';
+      msg.style.color='#B0655A';
+      msg.textContent = 'Noget gik galt. Prøv igen — eller skriv direkte til christian@scaleconsulting.dk';
+      btn.disabled = false; btn.innerHTML = 'Send og book vækstanalyse <span class="arr">→</span>';
+    }
+  });
+}
 </script>
 </body>
 </html>
