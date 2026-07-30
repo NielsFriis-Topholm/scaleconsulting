@@ -12,6 +12,47 @@
 <meta property="og:url" content="https://scaleconsulting.dk/">
 <meta property="og:locale" content="da_DK">
 <meta name="theme-color" content="#3A6B55">
+<meta property="og:image" content="https://scaleconsulting.dk/assets/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Scale Consulting — Vækstpartner for skandinaviske brands">
+<meta name="twitter:description" content="Vi skalerer livsstilsbrands i Skandinavien — etape for etape. Book en gratis vækstanalyse.">
+<meta name="twitter:image" content="https://scaleconsulting.dk/assets/og-image.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png">
+<link rel="icon" href="/assets/favicon.ico">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Scale Consulting",
+  "url": "https://scaleconsulting.dk",
+  "logo": "https://scaleconsulting.dk/assets/icon-512.png",
+  "email": "christian@scaleconsulting.dk",
+  "telephone": "+45 22 99 84 79",
+  "address": { "@type": "PostalAddress", "addressLocality": "Silkeborg", "addressCountry": "DK" },
+  "founder": [
+    { "@type": "Person", "name": "Niels Friis-Toholm" },
+    { "@type": "Person", "name": "Christian Friis-Toholm" }
+  ],
+  "sameAs": []
+}
+</script>
+<!-- Meta Pixel -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '257721913213943');
+fbq('track', 'PageView');
+</script>
+<!-- End Meta Pixel -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,300..800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -345,6 +386,21 @@ footer .logo{color:#F2F3F4}
   font-size:.8rem;color:var(--mist);
 }
 
+/* ---------- hero-foto ---------- */
+.hero-photo{position:relative}
+.hero-photo img{
+  width:100%;height:auto;border-radius:calc(var(--radius) + 6px);
+  box-shadow:0 30px 70px -35px rgba(18,20,22,.45);
+  border:1px solid var(--line);
+}
+.hero-photo-badge{
+  position:absolute;left:1.1rem;bottom:1.1rem;
+  background:rgba(18,20,22,.88);color:#fff;backdrop-filter:blur(6px);
+  font-family:'IBM Plex Mono',monospace;font-size:.66rem;letter-spacing:.16em;text-transform:uppercase;
+  padding:.55rem .9rem;border-radius:999px;
+}
+.hero-photo-badge::before{content:"";display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--brass);margin-right:.55rem;vertical-align:1px}
+
 /* ---------- konvertering: mikrotekst ---------- */
 .microtrust{
   display:flex;gap:1.4rem;flex-wrap:wrap;margin-top:1.1rem;
@@ -448,6 +504,9 @@ footer .logo{color:#F2F3F4}
 </style>
 </head>
 <body>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=257721913213943&ev=PageView&noscript=1"
+/></noscript>
 
 <header>
   <div class="wrap nav">
@@ -501,19 +560,9 @@ footer .logo{color:#F2F3F4}
         <li><span>03</span>Data, Shopify &amp; logistik</li>
       </ul>
     </div>
-    <div aria-hidden="true">
-      <svg class="stairs" viewBox="0 0 460 400" xmlns="http://www.w3.org/2000/svg">
-        <rect class="step-fill" x="20"  y="320" width="100" height="60" rx="6"/>
-        <rect class="step-fill" x="130" y="250" width="100" height="130" rx="6"/>
-        <rect class="step-fill" x="240" y="165" width="100" height="215" rx="6"/>
-        <rect class="step-fill s4" x="350" y="60"  width="100" height="320" rx="6"/>
-        <path class="step-line" d="M20 318 L120 318 L130 248 L230 248 L240 163 L340 163 L350 58 L450 58"/>
-        <circle class="dot" cx="450" cy="58" r="5"/>
-        <text x="30"  y="352">Fundament</text>
-        <text x="140" y="282">Position</text>
-        <text x="250" y="197">Acceleration</text>
-        <text class="t4" x="360" y="92">Skalering</text>
-      </svg>
+    <div class="hero-photo reveal in">
+      <img src="/assets/hero.jpg" alt="Oplæg om content og annoncering hos Scale Consulting" width="560" height="610" loading="eager">
+      <span class="hero-photo-badge">Vækst i praksis — ikke teori</span>
     </div>
   </div>
 </section>
@@ -1043,6 +1092,7 @@ if(form){
         body: JSON.stringify(data)
       });
       if(!r.ok) throw new Error('Serverfejl');
+      if (typeof fbq === 'function') fbq('track', 'Lead');
       form.reset();
       msg.style.display='block';
       msg.style.color='#3A6B55';
@@ -1056,6 +1106,20 @@ if(form){
     }
   });
 }
+
+// CTA-klik events til Meta Pixel
+document.querySelectorAll('a[href="#kontakt"]').forEach(a=>{
+  a.addEventListener('click', ()=>{
+    if (typeof fbq === 'function') fbq('trackCustom', 'CTAClick', { cta_text: a.textContent.trim().slice(0,60) });
+  });
+});
+document.querySelectorAll('.card .go').forEach(a=>{
+  a.addEventListener('click', ()=>{
+    const card = a.closest('.card');
+    const service = card ? card.querySelector('h3').textContent.trim() : '';
+    if (typeof fbq === 'function') fbq('trackCustom', 'ServiceInterest', { service });
+  });
+});
 </script>
 </body>
 </html>
