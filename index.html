@@ -899,7 +899,7 @@ footer .logo{color:#F2F3F4}
         </div>
         <div class="f-field">
           <label for="f-web">Link til webshop <span class="opt">(valgfrit)</span></label>
-          <input id="f-web" name="website" type="url" placeholder="https://">
+          <input id="f-web" name="website" type="text" inputmode="url" placeholder="f.eks. www.ditbrand.dk" autocomplete="url">
         </div>
         <div class="f-field">
           <label for="f-platform">Hvilken platform er I på?</label>
@@ -1035,6 +1035,7 @@ if(form){
     if(!form.reportValidity()) return;
     btn.disabled = true; btn.textContent = 'Sender…';
     const data = Object.fromEntries(new FormData(form).entries());
+    if(data.website && !/^https?:\/\//i.test(data.website)){ data.website = 'https://' + data.website.trim(); }
     try{
       const r = await fetch('/api/lead', {
         method:'POST',
