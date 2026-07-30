@@ -1,0 +1,1030 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Scale Consulting — Vækstpartner for skandinaviske brands</title>
+<meta name="description" content="Scale Consulting er en performance- og brandpartner i Silkeborg. Vi skalerer livsstilsbrands i Skandinavien — etape for etape.">
+<link rel="canonical" href="https://scaleconsulting.dk/">
+<meta property="og:title" content="Scale Consulting — Vækstpartner for skandinaviske brands">
+<meta property="og:description" content="Vi skalerer livsstilsbrands i Skandinavien — etape for etape. Performance marketing, brandopbygning og vores eget datalag. Book en gratis vækstanalyse.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://scaleconsulting.dk/">
+<meta property="og:locale" content="da_DK">
+<meta name="theme-color" content="#3A6B55">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,300..800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --white:#FFFFFF;
+  --off:#F6F5F2;          /* lys sektion */
+  --paper:#FAF9F7;
+  --line:#E5E3DE;
+  --black:#121416;        /* tekst + mørke paneler */
+  --panel:#1A1D20;        /* kort på mørk */
+  --line-dark:#2C3034;
+  --brass:#3A6B55;        /* accent — nordisk grangrøn */
+  --brass-soft:#6C9781;
+  --brass-tint:#EAF1EC;
+  --slate:#5A5F66;        /* dæmpet tekst på lys */
+  --mist:#9AA1A9;         /* dæmpet tekst på mørk */
+  --radius:14px;
+  --maxw:1180px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Archivo',system-ui,sans-serif;
+  font-variation-settings:'wdth' 100;
+  background:var(--white);
+  color:var(--black);
+  line-height:1.65;
+  font-size:16px;
+  -webkit-font-smoothing:antialiased;
+}
+::selection{background:var(--brass-tint);color:var(--brass)}
+img{max-width:100%;display:block}
+a{color:inherit}
+
+/* ---------- typografi ---------- */
+.display{
+  font-variation-settings:'wdth' 118;
+  font-weight:680;
+  letter-spacing:-0.015em;
+  line-height:1.06;
+  color:var(--black);
+}
+h1.display{font-size:clamp(2.5rem,5.6vw,4.3rem)}
+h2.display{font-size:clamp(1.9rem,3.6vw,2.9rem)}
+h3{font-variation-settings:'wdth' 110;font-weight:640;font-size:1.14rem;letter-spacing:-0.01em;line-height:1.3;color:var(--black)}
+.eyebrow{
+  font-family:'IBM Plex Mono',monospace;
+  font-size:.72rem;
+  letter-spacing:.22em;
+  text-transform:uppercase;
+  color:var(--brass);
+  display:flex;align-items:center;gap:.9rem;
+  margin-bottom:1.2rem;
+}
+.eyebrow::before{content:"";width:34px;height:1px;background:var(--brass)}
+.lead{font-size:1.12rem;font-weight:380;max-width:56ch;color:var(--slate)}
+p{color:var(--slate)}
+.on-dark .display,.on-dark h3{color:#F2F3F4}
+.on-dark p,.on-dark .lead{color:var(--mist)}
+.accent{color:var(--brass)}
+.u{position:relative;white-space:nowrap}
+.u::after{content:"";position:absolute;left:0;right:0;bottom:.06em;height:3px;background:var(--brass);opacity:.85}
+
+/* ---------- layout ---------- */
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 clamp(1.2rem,4vw,2.5rem)}
+section{padding:clamp(4.5rem,9vw,7.5rem) 0}
+.on-white{background:var(--white)}
+.on-off{background:var(--off)}
+.on-paper{background:var(--paper)}
+.on-dark{background:var(--black)}
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,5vw,4.5rem);align-items:start}
+
+/* ---------- nav ---------- */
+header{
+  position:sticky;top:0;z-index:60;
+  background:rgba(255,255,255,.88);
+  backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--line);
+}
+.nav{display:flex;align-items:center;justify-content:space-between;height:72px;gap:1.5rem}
+.logo{font-variation-settings:'wdth' 118;font-weight:700;font-size:1.08rem;letter-spacing:-.01em;color:var(--black);text-decoration:none}
+.logo em{font-style:normal;color:var(--brass)}
+.nav-links{display:flex;gap:.35rem;list-style:none;align-items:center}
+.nav-links > li > a{
+  display:inline-block;text-decoration:none;font-size:.88rem;font-weight:500;color:var(--slate);
+  padding:.55rem .85rem;border-radius:8px;transition:color .2s,background .2s;
+}
+.nav-links > li > a:hover,.nav-links > li > a:focus-visible{color:var(--black);background:var(--off)}
+.has-sub{position:relative}
+.has-sub > a::after{content:"▾";font-size:.62rem;margin-left:.45rem;color:var(--brass);vertical-align:1px}
+.sub{
+  position:absolute;top:calc(100% + 12px);left:50%;transform:translateX(-50%) translateY(6px);
+  min-width:290px;background:var(--white);border:1px solid var(--line);border-radius:16px;
+  box-shadow:0 24px 60px -20px rgba(18,20,22,.22);
+  padding:.55rem;list-style:none;
+  opacity:0;visibility:hidden;transition:opacity .22s ease,transform .22s ease,visibility .22s;
+}
+.sub::before{content:"";position:absolute;top:-14px;left:0;right:0;height:14px}
+.has-sub:hover .sub,.has-sub:focus-within .sub{opacity:1;visibility:visible;transform:translateX(-50%) translateY(0)}
+.sub a{
+  display:flex;align-items:center;gap:.95rem;
+  padding:.7rem .8rem;border-radius:11px;text-decoration:none;
+  color:var(--black);font-size:.92rem;font-weight:520;
+  transition:background .18s;
+}
+.sub a:hover,.sub a:focus-visible{background:var(--off)}
+.sub .ic{
+  width:38px;height:38px;flex:0 0 38px;border-radius:10px;
+  background:var(--brass-tint);color:var(--brass);
+  display:grid;place-items:center;font-size:.95rem;
+}
+.btn{
+  display:inline-flex;align-items:center;gap:.6rem;
+  background:var(--black);color:#fff;
+  font-family:inherit;font-weight:620;font-size:.9rem;
+  padding:.85rem 1.5rem;border:none;border-radius:999px;
+  text-decoration:none;cursor:pointer;
+  transition:transform .2s,background .2s;
+}
+.btn:hover{background:#2A2E33;transform:translateY(-1px)}
+.btn:focus-visible{outline:2px solid var(--brass);outline-offset:3px}
+.btn.gold{background:var(--brass);color:#fff}
+.btn.gold:hover{background:var(--brass-soft)}
+.btn.ghost{background:transparent;color:var(--black);border:1px solid var(--line)}
+.btn.ghost:hover{border-color:var(--brass);color:var(--brass);background:transparent}
+.btn.small{padding:.6rem 1.15rem;font-size:.82rem}
+.btn .arr{transition:transform .2s}
+.btn:hover .arr{transform:translateX(3px)}
+.on-dark .btn{background:var(--brass);color:#fff}
+.on-dark .btn:hover{background:var(--brass-soft)}
+
+/* ---------- hero ---------- */
+.hero{
+  position:relative;overflow:hidden;
+  padding:clamp(5rem,11vw,8.5rem) 0 clamp(4rem,8vw,6.5rem);
+  background:linear-gradient(180deg,var(--paper),var(--white));
+}
+.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(2rem,5vw,4rem);align-items:center}
+.hero p.lead{margin:1.6rem 0 2.2rem}
+.hero-ctas{display:flex;gap:1rem;flex-wrap:wrap}
+.hero-pillars{
+  margin-top:3.2rem;display:flex;gap:0;list-style:none;
+  border-top:1px solid var(--line);
+}
+.hero-pillars li{
+  flex:1;padding:1.15rem 1.2rem 0 0;
+  font-family:'IBM Plex Mono',monospace;font-size:.72rem;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--slate);
+}
+.hero-pillars li span{display:block;color:var(--brass);margin-bottom:.3rem;font-size:.68rem}
+/* etape-motiv */
+.stairs{width:100%;height:auto}
+.stairs .step-line{
+  fill:none;stroke:var(--brass);stroke-width:2.5;
+  stroke-dasharray:1600;stroke-dashoffset:1600;
+  animation:draw 2.4s ease forwards .3s;
+}
+.stairs .step-fill{fill:var(--off);stroke:var(--line);stroke-width:1}
+.stairs .s4{fill:var(--black);stroke:var(--black)}
+.stairs text{
+  font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.14em;
+  fill:var(--slate);text-transform:uppercase;
+}
+.stairs .t4{fill:#fff}
+.stairs .dot{fill:var(--brass)}
+@keyframes draw{to{stroke-dashoffset:0}}
+
+/* ---------- positionering ---------- */
+.pos-quote{
+  font-variation-settings:'wdth' 112;font-weight:560;
+  font-size:clamp(1.35rem,2.6vw,1.9rem);line-height:1.35;
+  color:var(--black);max-width:30ch;
+}
+.pos-list{list-style:none;margin-top:2rem;display:grid;gap:0}
+.pos-list li{
+  padding:1.15rem 0;border-top:1px solid var(--line);
+  display:grid;grid-template-columns:26px 1fr;gap:1rem;align-items:baseline;
+}
+.pos-list li:last-child{border-bottom:1px solid var(--line)}
+.pos-list .tick{color:var(--brass);font-weight:700}
+.pos-list strong{color:var(--black);font-weight:620}
+
+/* ---------- services ---------- */
+.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.3rem;margin-top:3rem}
+.card{
+  background:var(--white);border:1px solid var(--line);border-radius:var(--radius);
+  padding:1.8rem 1.7rem 1.9rem;
+  display:flex;flex-direction:column;gap:.85rem;
+  transition:transform .25s,box-shadow .25s,border-color .25s;
+}
+.card:hover{transform:translateY(-4px);box-shadow:0 20px 44px -28px rgba(18,20,22,.3);border-color:var(--brass-soft)}
+.card .idx{font-family:'IBM Plex Mono',monospace;font-size:.7rem;letter-spacing:.2em;color:var(--brass)}
+.card p{font-size:.93rem}
+.card .how{
+  margin-top:auto;padding-top:1rem;border-top:1px dashed var(--line);
+  font-size:.85rem;color:var(--slate);
+}
+.card .how b{color:var(--black);font-weight:620;display:block;margin-bottom:.25rem;font-size:.76rem;letter-spacing:.1em;text-transform:uppercase}
+
+/* ---------- hvem hjælper vi ---------- */
+.who-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.3rem;margin-top:3rem}
+.who-card{
+  background:var(--white);border:1px solid var(--line);border-top:3px solid var(--brass);
+  border-radius:var(--radius);
+  padding:2rem 1.8rem;display:flex;flex-direction:column;gap:.9rem;
+  transition:transform .25s,box-shadow .25s;
+}
+.who-card:hover{transform:translateY(-4px);box-shadow:0 20px 44px -28px rgba(18,20,22,.3)}
+.who-card .ic{
+  width:44px;height:44px;border-radius:12px;
+  background:var(--brass-tint);color:var(--brass);
+  display:grid;place-items:center;font-size:1.1rem;margin-bottom:.3rem;
+}
+.who-card p{font-size:.93rem}
+.who-card a{
+  margin-top:auto;padding-top:1rem;text-decoration:none;font-size:.86rem;font-weight:600;color:var(--brass);
+}
+.who-card a:hover{color:var(--black)}
+
+/* ---------- metode / etaper ---------- */
+.stages{margin-top:3.5rem;display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-left:1px solid var(--line)}
+.stage{padding:0 1.6rem 0 1.4rem;border-right:1px solid var(--line);position:relative}
+.stage::before{content:"";position:absolute;left:-1px;top:0;width:2px;background:var(--brass)}
+.stage:nth-child(1)::before{height:22%}
+.stage:nth-child(2)::before{height:42%}
+.stage:nth-child(3)::before{height:66%}
+.stage:nth-child(4)::before{height:92%}
+.stage .num{font-family:'IBM Plex Mono',monospace;font-size:.7rem;color:var(--brass);letter-spacing:.22em;text-transform:uppercase;display:block;margin-bottom:.8rem}
+.stage h3{margin-bottom:.6rem}
+.stage p{font-size:.9rem}
+
+/* ---------- data layer ---------- */
+.data-panel{
+  background:var(--white);
+  border:1px solid var(--line);border-left:3px solid var(--brass);
+  border-radius:var(--radius);
+  padding:1.7rem 1.6rem;display:flex;flex-direction:column;gap:.7rem;
+}
+.data-panel .tag{
+  align-self:flex-start;font-family:'IBM Plex Mono',monospace;font-size:.64rem;
+  letter-spacing:.18em;text-transform:uppercase;color:var(--brass);
+  border:1px solid var(--brass-soft);border-radius:999px;padding:.3rem .75rem;
+}
+.data-panel p{font-size:.92rem}
+
+/* ---------- build a brand (mørkt kontrastpanel) ---------- */
+.bab{
+  background:linear-gradient(160deg,var(--panel) 0%,var(--black) 75%);
+  border-radius:calc(var(--radius) + 6px);
+  padding:clamp(2.2rem,5vw,4rem);
+  position:relative;overflow:hidden;
+}
+.bab::after{
+  content:"";position:absolute;right:-120px;top:-120px;width:380px;height:380px;
+  border:1px solid rgba(108,151,129,.3);border-radius:50%;
+}
+.bab::before{
+  content:"";position:absolute;right:-60px;top:-60px;width:260px;height:260px;
+  border:1px solid rgba(108,151,129,.42);border-radius:50%;
+}
+.bab-cols{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(2rem,4vw,3.5rem);position:relative;z-index:1}
+.bab .display{color:#F2F3F4}
+.bab p,.bab .lead{color:var(--mist)}
+.bab ul{list-style:none;display:grid;gap:.9rem;margin-top:.4rem}
+.bab ul li{display:grid;grid-template-columns:20px 1fr;gap:.9rem;color:var(--mist);font-size:.95rem}
+.bab ul li::before{content:"→";color:var(--brass)}
+.bab .btn{background:var(--brass);color:#fff}
+.bab .btn:hover{background:var(--brass-soft)}
+
+/* ---------- skandinavien ---------- */
+.scan-facts{list-style:none;display:grid;gap:0;margin-top:1rem}
+.scan-facts li{padding:1.3rem 0;border-top:1px solid var(--line);display:grid;grid-template-columns:150px 1fr;gap:1.4rem}
+.scan-facts li:last-child{border-bottom:1px solid var(--line)}
+.scan-facts .k{font-family:'IBM Plex Mono',monospace;font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:var(--brass);padding-top:.3rem}
+.scan-facts p{font-size:.94rem}
+.scan-facts strong{color:var(--black);font-weight:620}
+
+/* ---------- om os ---------- */
+.founders{
+  background:var(--white);
+  border:1px solid var(--line);border-top:3px solid var(--brass);
+  border-radius:var(--radius);
+  padding:2.1rem 2rem;
+  box-shadow:0 24px 55px -38px rgba(18,20,22,.3);
+}
+.founders .names{font-variation-settings:'wdth' 112;font-weight:640;font-size:1.3rem;line-height:1.3;margin-bottom:.9rem;color:var(--black)}
+.founders p{font-size:.95rem}
+.values{list-style:none;display:grid;gap:1.1rem;margin-top:2rem}
+.values li{display:grid;grid-template-columns:22px 1fr;gap:1rem;color:var(--slate);font-size:.97rem}
+.values li::before{content:"—";color:var(--brass)}
+.values strong{color:var(--black);font-weight:620}
+
+/* ---------- form ---------- */
+.form-shell{
+  background:var(--white);border:1px solid var(--line);border-radius:calc(var(--radius) + 6px);
+  padding:clamp(1.8rem,4vw,3rem);max-width:820px;margin:3rem auto 0;
+  box-shadow:0 30px 70px -45px rgba(18,20,22,.35);
+}
+.f-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.15rem 1.3rem}
+.f-field{display:flex;flex-direction:column;gap:.4rem}
+.f-field.full{grid-column:1/-1}
+.f-field label{font-size:.8rem;font-weight:600;color:var(--black);letter-spacing:.02em}
+.f-field label .req{color:var(--brass)}
+.f-field label .opt{color:var(--slate);font-weight:420;font-size:.74rem}
+.f-field input,.f-field select,.f-field textarea{
+  font-family:inherit;font-size:.94rem;color:var(--black);
+  background:var(--paper);border:1px solid var(--line);border-radius:10px;
+  padding:.8rem .95rem;transition:border-color .2s,box-shadow .2s;width:100%;
+}
+.f-field textarea{min-height:110px;resize:vertical}
+.f-field input:focus,.f-field select:focus,.f-field textarea:focus{
+  outline:none;border-color:var(--brass);box-shadow:0 0 0 3px rgba(58,107,85,.16);
+}
+.f-note{font-size:.8rem;color:var(--slate);margin-top:1.1rem;text-align:center}
+.form-shell .btn{width:100%;justify-content:center;margin-top:1.4rem;border-radius:12px;padding:1rem;background:var(--brass);color:#fff}
+.form-shell .btn:hover{background:var(--brass-soft)}
+
+/* ---------- footer ---------- */
+footer{background:var(--black);padding:4rem 0 2.5rem}
+.foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:2.5rem}
+footer .logo{color:#F2F3F4}
+.foot-grid h4{font-family:'IBM Plex Mono',monospace;font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;color:var(--brass);font-weight:500;margin-bottom:1rem}
+.foot-grid ul{list-style:none;display:grid;gap:.55rem}
+.foot-grid a{color:var(--mist);text-decoration:none;font-size:.9rem;transition:color .2s}
+.foot-grid a:hover{color:#F2F3F4}
+.foot-grid p{color:var(--mist);font-size:.9rem}
+.foot-base{
+  margin-top:3rem;padding-top:1.6rem;border-top:1px solid var(--line-dark);
+  display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;
+  font-size:.8rem;color:var(--mist);
+}
+
+/* ---------- konvertering: mikrotekst ---------- */
+.microtrust{
+  display:flex;gap:1.4rem;flex-wrap:wrap;margin-top:1.1rem;
+  font-family:'IBM Plex Mono',monospace;font-size:.68rem;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--slate);
+}
+.microtrust span::before{content:"✓";color:var(--brass);margin-right:.45rem}
+
+/* ---------- konvertering: kort-CTA ---------- */
+.card .go{
+  margin-top:.9rem;text-decoration:none;font-size:.85rem;font-weight:620;color:var(--brass);
+}
+.card .go:hover{color:var(--black)}
+
+/* ---------- konvertering: CTA-bånd ---------- */
+.cta-band{
+  background:var(--brass);border-radius:calc(var(--radius) + 6px);
+  padding:clamp(2rem,4vw,3rem);
+  display:flex;align-items:center;justify-content:space-between;gap:2rem;flex-wrap:wrap;
+}
+.cta-band h2{font-variation-settings:'wdth' 114;font-weight:660;font-size:clamp(1.4rem,2.6vw,1.9rem);color:#fff;letter-spacing:-.01em;line-height:1.25;max-width:24ch}
+.cta-band p{color:rgba(255,255,255,.85);font-size:.95rem;max-width:44ch;margin-top:.5rem}
+.cta-band .btn{background:#fff;color:var(--brass);flex:0 0 auto}
+.cta-band .btn:hover{background:var(--brass-tint);color:var(--brass)}
+
+/* ---------- konvertering: match ---------- */
+.match-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.3rem;margin-top:3rem}
+.match-col{border-radius:var(--radius);padding:1.9rem 1.8rem}
+.match-col h3{margin-bottom:1.1rem}
+.match-col ul{list-style:none;display:grid;gap:0}
+.match-col li{
+  padding:.85rem 0;display:grid;grid-template-columns:22px 1fr;gap:.9rem;
+  font-size:.94rem;align-items:baseline;
+}
+.match-no{background:var(--off);border:1px solid var(--line)}
+.match-no li{border-top:1px solid var(--line);color:var(--slate)}
+.match-no li::before{content:"✕";color:#B0655A;font-weight:700}
+.match-yes{background:var(--black)}
+.match-yes h3{color:#F2F3F4}
+.match-yes li{border-top:1px solid var(--line-dark);color:var(--mist)}
+.match-yes li::before{content:"✓";color:var(--brass-soft);font-weight:700}
+
+/* ---------- konvertering: FAQ ---------- */
+.faq{max-width:820px;margin:3rem auto 0}
+.faq details{border-top:1px solid var(--line)}
+.faq details:last-child{border-bottom:1px solid var(--line)}
+.faq summary{
+  cursor:pointer;list-style:none;display:flex;align-items:baseline;gap:1.2rem;
+  padding:1.25rem 0;font-weight:620;font-size:1rem;color:var(--black);
+}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary .n{font-family:'IBM Plex Mono',monospace;font-size:.7rem;color:var(--brass);letter-spacing:.14em}
+.faq summary .plus{margin-left:auto;color:var(--brass);font-weight:400;font-size:1.2rem;transition:transform .25s;flex:0 0 auto}
+.faq details[open] .plus{transform:rotate(45deg)}
+.faq details p{padding:0 0 1.3rem 2.55rem;font-size:.94rem;max-width:62ch}
+
+/* ---------- konvertering: proces-trin ---------- */
+.steps{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;
+  max-width:820px;margin:2.5rem auto 0;
+}
+.step-box{
+  background:var(--white);border:1px solid var(--line);border-radius:var(--radius);
+  padding:1.3rem 1.3rem 1.4rem;
+}
+.step-box .n{
+  font-family:'IBM Plex Mono',monospace;font-size:.68rem;letter-spacing:.18em;
+  color:var(--brass);display:block;margin-bottom:.5rem;
+}
+.step-box h3{font-size:.98rem;margin-bottom:.35rem}
+.step-box p{font-size:.86rem}
+
+/* ---------- reveal ---------- */
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease}
+.reveal.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important}
+  .reveal{opacity:1;transform:none}
+  html{scroll-behavior:auto}
+}
+
+/* ---------- responsivt ---------- */
+@media(max-width:960px){
+  .hero-grid,.grid-2,.bab-cols{grid-template-columns:1fr}
+  .svc-grid,.who-grid{grid-template-columns:1fr 1fr}
+  .stages{grid-template-columns:1fr 1fr;border-left:none}
+  .stage{border-left:1px solid var(--line);margin-bottom:1.5rem}
+  .foot-grid{grid-template-columns:1fr 1fr}
+  .nav-links{display:none}
+}
+@media(max-width:960px){
+  .match-grid{grid-template-columns:1fr}
+}
+@media(max-width:620px){
+  .svc-grid,.who-grid,.f-grid,.stages,.steps{grid-template-columns:1fr}
+  .cta-band{flex-direction:column;align-items:flex-start}
+  .hero-pillars{flex-direction:column;gap:.4rem}
+  .scan-facts li{grid-template-columns:1fr;gap:.3rem}
+  .foot-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a class="logo" href="#top">Scale Consulting<em>.</em></a>
+    <nav aria-label="Hovednavigation">
+      <ul class="nav-links">
+        <li class="has-sub">
+          <a href="#services" aria-haspopup="true">Services</a>
+          <ul class="sub">
+            <li><a href="#svc-performance"><span class="ic">◎</span>Betalt annoncering</a></li>
+            <li><a href="#svc-brand"><span class="ic">✦</span>Brand &amp; positionering</a></li>
+            <li><a href="#svc-kreativ"><span class="ic">▤</span>Static ads at scale</a></li>
+            <li><a href="#svc-shopify"><span class="ic">▲</span>Shopify &amp; CRO</a></li>
+            <li><a href="#svc-data"><span class="ic">◫</span>Datalag &amp; analyse</a></li>
+            <li><a href="#svc-ekspansion"><span class="ic">↗</span>Internationalisering &amp; 3PL</a></li>
+          </ul>
+        </li>
+        <li class="has-sub">
+          <a href="#hvem" aria-haspopup="true">Hvem hjælper vi</a>
+          <ul class="sub">
+            <li><a href="#hvem-etablerede"><span class="ic">◆</span>Etablerede brands</a></li>
+            <li><a href="#buildabrand"><span class="ic">✷</span>Opstart — Build a Brand</a></li>
+            <li><a href="#skandinavien"><span class="ic">⌖</span>Skandinavisk ekspansion</a></li>
+          </ul>
+        </li>
+        <li><a href="#metode">Metode</a></li>
+        <li><a href="#om">Om os</a></li>
+      </ul>
+    </nav>
+    <a class="btn gold small" href="#kontakt">Book en vækstanalyse</a>
+  </div>
+</header>
+
+<main id="top">
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <p class="eyebrow">Vækstpartner · Silkeborg, Danmark</p>
+      <h1 class="display">Vi skalerer brands i Skandinavien.<br><span class="accent">Etape for etape.</span></h1>
+      <p class="lead">Scale Consulting er en performance- og brandpartner for ambitiøse livsstilsbrands. Vi kombinerer betalt annoncering, brandopbygning og vores eget datalag — og ved, hvornår der skal accelereres, og hvornår der skal holdes igen.</p>
+      <div class="hero-ctas">
+        <a class="btn gold" href="#kontakt">Book en gratis vækstanalyse <span class="arr">→</span></a>
+        <a class="btn ghost" href="#metode">Se vores tilgang</a>
+      </div>
+      <p class="microtrust"><span>Gratis analyse</span><span>Ingen forpligtelser</span><span>Svar inden 24 timer</span></p>
+      <ul class="hero-pillars">
+        <li><span>01</span>Performance marketing</li>
+        <li><span>02</span>Brandopbygning &amp; positionering</li>
+        <li><span>03</span>Data, Shopify &amp; logistik</li>
+      </ul>
+    </div>
+    <div aria-hidden="true">
+      <svg class="stairs" viewBox="0 0 460 400" xmlns="http://www.w3.org/2000/svg">
+        <rect class="step-fill" x="20"  y="320" width="100" height="60" rx="6"/>
+        <rect class="step-fill" x="130" y="250" width="100" height="130" rx="6"/>
+        <rect class="step-fill" x="240" y="165" width="100" height="215" rx="6"/>
+        <rect class="step-fill s4" x="350" y="60"  width="100" height="320" rx="6"/>
+        <path class="step-line" d="M20 318 L120 318 L130 248 L230 248 L240 163 L340 163 L350 58 L450 58"/>
+        <circle class="dot" cx="450" cy="58" r="5"/>
+        <text x="30"  y="352">Fundament</text>
+        <text x="140" y="282">Position</text>
+        <text x="250" y="197">Acceleration</text>
+        <text class="t4" x="360" y="92">Skalering</text>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- ============ POSITIONERING ============ -->
+<section class="on-white" id="tilgang">
+  <div class="wrap grid-2">
+    <div class="reveal">
+      <p class="eyebrow">Ikke et bureau i klassisk forstand</p>
+      <h2 class="display">Vores services er en del af <span class="u">vores produkt</span>.</h2>
+      <p class="lead" style="margin-top:1.4rem">Scale Consulting leverer ikke standardydelser fra en prisliste. Vi er en vækstpartner: Vores kerneområde er performancebaseret marketing og brandopbygning, og omkring det har vi bygget produkter, systemer og samarbejdsformer, der sætter ind dér, hvor det reelt rykker i din forretning.</p>
+      <p style="margin-top:1rem">Mange virksomheder har travlt i hverdagen og når aldrig i bund med det, der virkelig skaber vækst. Vores opgave er at prioritere skarpt for dig — ærligt og i øjenhøjde, uanset hvor du er i din rejse.</p>
+    </div>
+    <div class="reveal">
+      <p class="pos-quote">"Vi tror på, at troværdighed og ærlighed er fundamentet for et samarbejde, der skaber resultater."</p>
+      <ul class="pos-list">
+        <li><span class="tick">✓</span><span><strong>Ét kerneområde, i dybden.</strong> Hvor store bureauer breder sig over alt, går vi kun dybt i vækst af brands.</span></li>
+        <li><span class="tick">✓</span><span><strong>Erfaring på tværs af kategorier.</strong> Pattern recognition fra arbejdet med brands i mange forskellige segmenter.</span></li>
+        <li><span class="tick">✓</span><span><strong>Hænderne i maskinrummet.</strong> Vi driver selv egne brands og egen logistik — vi rådgiver ud fra praksis, ikke teori.</span></li>
+        <li><span class="tick">✓</span><span><strong>Et tæt og ærligt samarbejde.</strong> Vi mødes i øjenhøjde og siger tingene, som de er — også når det er ubekvemt.</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SERVICES ============ -->
+<section class="on-off" id="services">
+  <div class="wrap">
+    <div class="reveal">
+      <p class="eyebrow">Det arbejder vi med</p>
+      <h2 class="display">Alt hvad et brand skal bruge for at <span class="u">vækste</span>.</h2>
+      <p class="lead" style="margin-top:1.3rem">Seks discipliner, ét system. Hver del understøtter de andre — så vækst ikke afhænger af en enkelt kanal eller en enkelt god idé.</p>
+    </div>
+    <div class="svc-grid">
+      <article class="card reveal" id="svc-performance">
+        <span class="idx">01 — Performance</span>
+        <h3>Betalt annoncering</h3>
+        <p>Meta, Google, TikTok og flere kanaler — struktureret omkring profitabel kundetilvækst, ikke bare kliks. Vi skalerer forbruget i takt med, at tallene tillader det.</p>
+        <div class="how"><b>Sådan gør vi</b>Klar kontostruktur, stærke kreativer og daglig styring med kontrol over CAC og marginer.</div>
+        <a class="go" href="#kontakt">Kom i gang →</a>
+      </article>
+      <article class="card reveal" id="svc-brand">
+        <span class="idx">02 — Brand</span>
+        <h3>Brandopbygning &amp; positionering</h3>
+        <p>Stærke brands bygges ikke af annoncer alene. Vi arbejder med kerneværdi, differentiering, marginer og offers — det der gør, at kunderne vælger dig og bliver hos dig.</p>
+        <div class="how"><b>Sådan gør vi</b>Positionering, offer-design og prislogik bygget til betalt trafik og langsigtet brandværdi.</div>
+        <a class="go" href="#kontakt">Kom i gang →</a>
+      </article>
+      <article class="card reveal" id="svc-kreativ">
+        <span class="idx">03 — Kreativt system</span>
+        <h3>Static ads at scale</h3>
+        <p>Kreativer er ofte den største flaskehals i skalering. Vores system producerer løbende højtkonverterende statiske annoncer bygget på dit brands egne data.</p>
+        <div class="how"><b>Sådan gør vi</b>En struktureret pipeline af vinkler, formater og testrammer — direkte integreret i kontostyringen.</div>
+        <a class="go" href="#kontakt">Kom i gang →</a>
+      </article>
+      <article class="card reveal" id="svc-shopify">
+        <span class="idx">04 — Platform</span>
+        <h3>Shopify &amp; CRO</h3>
+        <p>Vores team af Shopify-specialister starter typisk ethvert samarbejde med en optimering af dit nuværende site — eller en vurdering af migrering til Shopify.</p>
+        <div class="how"><b>Sådan gør vi</b>Konverteringsfokuseret design, hastighed og mobile-first — en butik bygget til betalt trafik.</div>
+        <a class="go" href="#kontakt">Kom i gang →</a>
+      </article>
+      <article class="card reveal" id="svc-data">
+        <span class="idx">05 — Data</span>
+        <h3>Datalag &amp; analyse</h3>
+        <p>Vores egen Shopify-app giver indsigter, den gennemsnitlige virksomhedsejer ikke har. Historisk data, forecasts og løbende analyser gør beslutninger datadrevne.</p>
+        <div class="how"><b>Sådan gør vi</b>Pålidelig tracking på tværs af Shopify, GA og annonceplatforme — så du skalerer på fakta.</div>
+        <a class="go" href="#kontakt">Kom i gang →</a>
+      </article>
+      <article class="card reveal" id="svc-ekspansion">
+        <span class="idx">06 — Ekspansion</span>
+        <h3>Internationalisering &amp; logistik</h3>
+        <p>Med vores oversættelses-setup og egen 3PL kan vi hurtigt teste og skalere dit brand i nye skandinaviske markeder — inklusiv lager, forsendelse og returhåndtering.</p>
+        <div class="how"><b>Sådan gør vi</b>Lokaliseret Shopify-setup, lokal fulfilment og rapportering pr. marked fra dag ét.</div>
+        <a class="go" href="#kontakt">Kom i gang →</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ HVEM HJÆLPER VI ============ -->
+<section class="on-white" id="hvem">
+  <div class="wrap">
+    <div class="reveal" style="max-width:720px">
+      <p class="eyebrow">Hvem hjælper vi</p>
+      <h2 class="display">Tre rejser. <span class="accent">Én vækstpartner.</span></h2>
+      <p class="lead" style="margin-top:1.3rem">Vores kunder står forskellige steder — men de deler ambitionen om at bygge noget, der holder. Vi møder dig dér, hvor du er.</p>
+    </div>
+    <div class="who-grid">
+      <article class="who-card reveal" id="hvem-etablerede">
+        <span class="ic">◆</span>
+        <h3>Etablerede brands</h3>
+        <p>Du har et fungerende brand og en fungerende forretning — men væksten er fladet ud, eller potentialet bliver ikke indfriet. Vi finder de næste etaper og skalerer struktureret.</p>
+        <a href="#metode">Se vores metode →</a>
+      </article>
+      <article class="who-card reveal">
+        <span class="ic">✷</span>
+        <h3>Opstart fra nul</h3>
+        <p>Du har en idé, et produkt eller en profil, vi tror på — men mangler erfaringen til at undgå de dyre begynderfejl. Vores Build a Brand-forløb tager dig hele vejen.</p>
+        <a href="#buildabrand">Læs om Build a Brand →</a>
+      </article>
+      <article class="who-card reveal">
+        <span class="ic">⌖</span>
+        <h3>Skandinavisk ekspansion</h3>
+        <p>Du vil ind i — eller ud i — Skandinavien. Med translations-setup, egen 3PL og lokal markedsforståelse gør vi ekspansion enklere, end de fleste tror.</p>
+        <a href="#skandinavien">Se hvordan →</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ METODE / ETAPER ============ -->
+<section class="on-off" id="metode">
+  <div class="wrap">
+    <div class="reveal" style="max-width:760px">
+      <p class="eyebrow">Vores metode</p>
+      <h2 class="display">Vækst sker i etaper. <span class="accent">Vi kender dem alle.</span></h2>
+      <p class="lead" style="margin-top:1.4rem">I e-commerce kommer vækst aldrig i én lige linje. Den kommer i etaper — og hver etape kræver noget forskelligt. Meget af det vigtigste arbejde ligger forud for de resultater, man kan se: positionering, marginer, et konverterende site, et unikt udtryk i markedet.</p>
+      <p style="margin-top:1rem">Alt for mange fokuserer kun på det synlige — produkter og annoncer. Vores arbejde er at effektivisere hvert stadie af din virksomheds vækst og positionere dig for succes: at vide, hvornår der skal trykkes på speederen, og hvornår der skal holdes igen.</p>
+    </div>
+    <div class="stages reveal">
+      <div class="stage">
+        <span class="num">Etape 01</span>
+        <h3>Fundament</h3>
+        <p>Tracking, site-optimering, marginer og offers på plads. Ofte inkl. Shopify-optimering eller migrering.</p>
+      </div>
+      <div class="stage">
+        <span class="num">Etape 02</span>
+        <h3>Position</h3>
+        <p>Differentiering, kernefortælling og et kreativt system, der gør dit brand umuligt at forveksle.</p>
+      </div>
+      <div class="stage">
+        <span class="num">Etape 03</span>
+        <h3>Acceleration</h3>
+        <p>Betalt annoncering skaleres struktureret — med klare mål for CAC, dækningsbidrag og kreativ fornyelse.</p>
+      </div>
+      <div class="stage">
+        <span class="num">Etape 04</span>
+        <h3>Skalering</h3>
+        <p>Nye markeder, nye produkter og nye kanaler — når fundamentet kan bære det, og data bekræfter det.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CTA-BÅND ============ -->
+<section class="on-off" style="padding-top:0">
+  <div class="wrap">
+    <div class="cta-band reveal">
+      <div>
+        <h2>Ikke sikker på, hvor I skal starte?</h2>
+        <p>Book en gratis vækstanalyse — så fortæller vi ærligt, hvilke håndtag der rykker mest i netop jeres forretning.</p>
+      </div>
+      <a class="btn" href="#kontakt">Book en gratis vækstanalyse <span class="arr">→</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ DATA LAYER ============ -->
+<section class="on-white">
+  <div class="wrap">
+    <div class="grid-2" style="align-items:center">
+      <div class="reveal">
+        <p class="eyebrow">Pattern recognition</p>
+        <h2 class="display">Et datalag, der ser det, <span class="accent">andre overser</span>.</h2>
+        <p class="lead" style="margin-top:1.4rem">Gennem arbejdet med brands i mange forskellige kategorier har vi bygget et komplet datalag og system, der gør det muligt at analysere historisk data, spotte muligheder og finde optimeringer på tværs af hele forretningen.</p>
+        <p style="margin-top:1rem">Kombineret med et erfarent øje ved vi, hvor der kan opnås edges i markedet — på både brandniveau og produktniveau — og hvordan der skal skaleres derfra. Beslutninger bygger på data og forecast, blandet med intuition og erfaring.</p>
+      </div>
+      <div style="display:grid;gap:1.1rem">
+        <div class="data-panel reveal">
+          <span class="tag">Egen Shopify-app</span>
+          <h3>Indsigter ud over standard-dashboards</h3>
+          <p>Vores egenudviklede app overvåger løbende din forretning og fodrer vores analyser med data, de fleste ikke har adgang til.</p>
+        </div>
+        <div class="data-panel reveal">
+          <span class="tag">Historisk analyse</span>
+          <h3>Forecasts, ikke gætværk</h3>
+          <p>Historisk data på tværs af kategorier gør det muligt at forudsige effekten af beslutninger — før budgettet bruges.</p>
+        </div>
+        <div class="data-panel reveal">
+          <span class="tag">Brand- &amp; produktniveau</span>
+          <h3>Edges på tværs af forretningen</h3>
+          <p>Vi identificerer, hvor der er mest at hente — pr. produkt, pr. marked og pr. kanal — og prioriterer derefter.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ BUILD A BRAND ============ -->
+<section class="on-white" id="buildabrand" style="padding-top:0">
+  <div class="wrap">
+    <div class="bab reveal">
+      <div class="bab-cols">
+        <div>
+          <p class="eyebrow">Build a Brand — for de få</p>
+          <h2 class="display">Fra nul til kritisk masse. <span class="accent">Uden begynderfejl.</span></h2>
+          <p class="lead" style="margin-top:1.4rem">Build a Brand er vores forløb for virksomheder, vi bygger op helt fra bunden. Det er ikke for alle — vi tager kun udvalgte profiler ind, som vi selv tror på, og som har brug for den ekstra støtte og erfaring, en startfase kræver.</p>
+          <p style="margin-top:1rem">Målet er at undgå de mange dyre begynderfejl og komme hurtigere til det punkt, hvor forretningen rammer kritisk masse og har forudsigelig omsætning.</p>
+          <a class="btn" style="margin-top:1.8rem" href="#kontakt">Ansøg om et forløb <span class="arr">→</span></a>
+        </div>
+        <div>
+          <ul>
+            <li>Positionering, brandidentitet og offer-design fra dag ét</li>
+            <li>Shopify-butik bygget til betalt trafik og skalering</li>
+            <li>Struktureret lancering af betalt annoncering</li>
+            <li>Adgang til vores datalag, systemer og erfaring</li>
+            <li>Mulighed for fulfilment gennem vores egen 3PL</li>
+            <li>Tæt sparring hele vejen til forudsigelig omsætning</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SKANDINAVIEN ============ -->
+<section class="on-off" id="skandinavien">
+  <div class="wrap grid-2">
+    <div class="reveal">
+      <p class="eyebrow">Vores hjemmebane</p>
+      <h2 class="display">Skandinavien er <span class="u">vores fokus</span>.</h2>
+      <p class="lead" style="margin-top:1.4rem">Vi har tidligere arbejdet med kunder over hele verden — og netop derfor har vi valgt Skandinavien. Købekraften er høj, e-commerce-modenheden er stor, og markedet belønner brands, der er bygget rigtigt.</p>
+      <p style="margin-top:1rem">Alt for mange brands starter generisk i konkurrenceprægede markeder. Vi viser en anden vej: flotte, stærke og velpositionerede brands, som kunderne holder af — og som holder i årevis, ikke kun på kort sigt.</p>
+    </div>
+    <div class="reveal">
+      <ul class="scan-facts">
+        <li>
+          <span class="k">Oversættelse</span>
+          <p><strong>Klar til nye markeder.</strong> Vores translations-setup gør det nemt at teste og skalere i andre skandinaviske lande — med lokal tone, valuta og betalingsmetoder.</p>
+        </li>
+        <li>
+          <span class="k">Egen 3PL</span>
+          <p><strong>Logistik løst fra dag ét.</strong> Vi driver vores eget 3PL-lager og kan være lagerførende for vores kunder — lokal forsendelse, lokale returer, hele vejen.</p>
+        </li>
+        <li>
+          <span class="k">Egne brands</span>
+          <p><strong>Vi gør det selv.</strong> Vi driver vores egne brands i markedet. Det holder os skarpe på, hvad der virker i dag — ikke hvad der virkede i 2018.</p>
+        </li>
+        <li>
+          <span class="k">Shopify</span>
+          <p><strong>Den stærkeste platform.</strong> Vi ser Shopify som den bedste platform til skalering af livsstilsbrands i FMCG-segmentet — og vores specialister kan den til bunds.</p>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============ MATCH ============ -->
+<section class="on-white" id="match">
+  <div class="wrap">
+    <div class="reveal" style="max-width:720px">
+      <p class="eyebrow">Et ærligt match-tjek</p>
+      <h2 class="display">Vi er ikke det rigtige valg <span class="accent">for alle</span>.</h2>
+      <p class="lead" style="margin-top:1.3rem">Et godt samarbejde starter med ærlighed — også om, hvorvidt vi overhovedet passer sammen. Tjek selv, før du booker.</p>
+    </div>
+    <div class="match-grid">
+      <div class="match-col match-no reveal">
+        <h3>Ikke et match</h3>
+        <ul>
+          <li>Prisen er vigtigere end resultaterne</li>
+          <li>I leder efter et billigt bureau og timebetaling</li>
+          <li>I tænker kortsigtet og vil have løst enkeltopgaver</li>
+          <li>I arbejder ud fra antagelser frem for data</li>
+        </ul>
+      </div>
+      <div class="match-col match-yes reveal">
+        <h3>Et match</h3>
+        <ul>
+          <li>Veletableret brand eller ambitiøs vækstvirksomhed</li>
+          <li>I ønsker et langsigtet og tæt samarbejde</li>
+          <li>I kan håndtere eksponentiel vækst</li>
+          <li>I er klar til at investere i vækst, der holder</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ OM OS ============ -->
+<section class="on-white" id="om">
+  <div class="wrap grid-2">
+    <div class="reveal">
+      <p class="eyebrow">Om Scale Consulting</p>
+      <h2 class="display">Vi tror på stærke brands. <span class="accent">Men resultater kommer først.</span></h2>
+      <p class="lead" style="margin-top:1.4rem">Scale Consulting er et ungt og dynamisk team — og eksperter i vores felt. Vi arbejder tæt, transparent og i øjenhøjde med vores kunder, uanset niveau og ambition.</p>
+      <ul class="values">
+        <li><span><strong>Ærlighed frem for alt.</strong> Vi siger tingene, som de er — også når anbefalingen er at holde igen.</span></li>
+        <li><span><strong>Dybde frem for bredde.</strong> Vi har ét kerneområde: vækst af brands. Det går vi til gengæld helt i dybden med.</span></li>
+        <li><span><strong>Arbejde før resultater.</strong> De bedste resultater bygges lang tid før, de kan ses — i positionering, marginer og fundament.</span></li>
+      </ul>
+    </div>
+    <div class="reveal">
+      <div class="founders">
+        <p class="eyebrow" style="margin-bottom:.9rem">Menneskene bag</p>
+        <p class="names">Niels &amp; Christian<br>Friis-Toholm</p>
+        <p>Bag Scale Consulting står brødrene — og tvillingerne — Niels og Christian Friis-Toholm. Virksomheden er til en vis grad en familieforretning med base i Silkeborg, og det mærkes: Hjertet sidder det rigtige sted, og vi ønsker kun det bedste for vores kunder og medarbejdere.</p>
+        <p style="margin-top:.8rem">Vi gør altid vores bedste — og vi bygger samarbejder, man ser tilbage på som en af sine bedste forretningsbeslutninger.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section class="on-white" id="faq">
+  <div class="wrap">
+    <div class="reveal" style="max-width:720px">
+      <p class="eyebrow">Før du booker</p>
+      <h2 class="display">Det spørger folk om, <span class="accent">før de siger ja</span>.</h2>
+    </div>
+    <div class="faq reveal">
+      <details>
+        <summary><span class="n">01</span>Hvad koster det at arbejde med jer?<span class="plus">+</span></summary>
+        <p>Det afhænger af jeres situation og etape — og derfor starter vi altid med en gratis vækstanalyse. Her får I en ærlig vurdering af potentialet og et konkret oplæg, før I beslutter jer. Vi arbejder ikke med timebetaling, men med faste samarbejdsformer bygget om jeres mål.</p>
+      </details>
+      <details>
+        <summary><span class="n">02</span>Hvor lang er bindingen?<span class="plus">+</span></summary>
+        <p>Vækst sker i etaper, og de bedste resultater kommer i langsigtede samarbejder. Men vi tror ikke på at fastholde nogen med kontrakter — vi tror på at fastholde med resultater og ærlig kommunikation. Detaljerne gennemgår vi åbent i den indledende dialog.</p>
+      </details>
+      <details>
+        <summary><span class="n">03</span>Hvornår begynder vi at se resultater?<span class="plus">+</span></summary>
+        <p>Det ærlige svar: Det afhænger af, hvor jeres fundament er i dag. Noget kan mærkes inden for de første uger — andet, som positionering og brandopbygning, bygges over måneder. I vækstanalysen fortæller vi konkret, hvad I realistisk kan forvente hvornår.</p>
+      </details>
+      <details>
+        <summary><span class="n">04</span>Hvem kommer til at arbejde med vores forretning?<span class="plus">+</span></summary>
+        <p>Ingen praktikanter, ingen juniorkonsulenter, ingen sælgere. Du arbejder direkte med et lille, erfarent team — og med systemer og et datalag, der er bygget gennem arbejdet med brands på tværs af mange kategorier.</p>
+      </details>
+      <details>
+        <summary><span class="n">05</span>Hvilke kanaler og platforme arbejder I med?<span class="plus">+</span></summary>
+        <p>Meta, Google og TikTok er de bærende kanaler i betalt annoncering. Derudover Shopify som platform (inkl. vores egen app), CRO, kreativ produktion, oversættelse til skandinaviske markeder og logistik gennem vores egen 3PL.</p>
+      </details>
+      <details>
+        <summary><span class="n">06</span>Skal vi være på Shopify for at arbejde med jer?<span class="plus">+</span></summary>
+        <p>Nej — men vi vurderer tidligt i forløbet, om jeres nuværende platform kan bære jeres vækstambitioner. Vi ser Shopify som den stærkeste platform til skalering af livsstilsbrands, og en eventuel migrering håndterer vores egne Shopify-specialister.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ============ KONTAKT / FORM ============ -->
+<section class="on-off" id="kontakt">
+  <div class="wrap">
+    <div class="reveal" style="text-align:center;max-width:640px;margin:0 auto">
+      <p class="eyebrow" style="justify-content:center">Kom i gang</p>
+      <h2 class="display">Klar til at <span class="u">vækste</span> dit brand?</h2>
+      <p class="lead" style="margin:1.3rem auto 0">Book en gratis vækstanalyse — ingen forpligtelser, kun ærlige anbefalinger. Jo mere du fortæller os, jo skarpere kan vi vurdere dine muligheder.</p>
+    </div>
+    <div class="steps reveal">
+      <div class="step-box">
+        <span class="n">Trin 01</span>
+        <h3>Vi gennemgår jeres forretning</h3>
+        <p>Site, annoncekonti, positionering og tal — med vores datalag og et erfarent øje.</p>
+      </div>
+      <div class="step-box">
+        <span class="n">Trin 02</span>
+        <h3>I får en ærlig vurdering</h3>
+        <p>Konkrete anbefalinger til, hvor der er mest at hente — også hvis svaret er at holde igen.</p>
+      </div>
+      <div class="step-box">
+        <span class="n">Trin 03</span>
+        <h3>I beslutter jer</h3>
+        <p>Ingen forpligtelser og intet salgspres. Analysen er jeres — uanset hvad I vælger.</p>
+      </div>
+    </div>
+    <form class="form-shell reveal" action="https://api.web3forms.com/submit" method="POST">
+      <!-- LAUNCH: Opret gratis nøgle på web3forms.com og indsæt den herunder -->
+      <input type="hidden" name="access_key" value="INDSÆT-JERES-ACCESS-KEY-HER">
+      <input type="hidden" name="subject" value="Ny vækstanalyse-forespørgsel fra scaleconsulting.dk">
+      <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
+      <div class="f-grid">
+        <div class="f-field">
+          <label for="f-navn">Dit navn <span class="req">*</span></label>
+          <input id="f-navn" name="navn" type="text" required autocomplete="name">
+        </div>
+        <div class="f-field">
+          <label for="f-email">E-mail <span class="req">*</span></label>
+          <input id="f-email" name="email" type="email" required autocomplete="email">
+        </div>
+        <div class="f-field">
+          <label for="f-tlf">Telefonnummer <span class="req">*</span></label>
+          <input id="f-tlf" name="telefon" type="tel" required autocomplete="tel">
+        </div>
+        <div class="f-field">
+          <label for="f-firma">Virksomhedsnavn <span class="req">*</span></label>
+          <input id="f-firma" name="virksomhed" type="text" required autocomplete="organization">
+        </div>
+        <div class="f-field">
+          <label for="f-web">Link til webshop <span class="opt">(valgfrit)</span></label>
+          <input id="f-web" name="website" type="url" placeholder="https://">
+        </div>
+        <div class="f-field">
+          <label for="f-platform">Hvilken platform er I på?</label>
+          <select id="f-platform" name="platform">
+            <option value="">Vælg platform…</option>
+            <option>Shopify</option>
+            <option>WooCommerce</option>
+            <option>Magento</option>
+            <option>DanDomain / SmartWeb</option>
+            <option>Egenudviklet / andet</option>
+            <option>Vi har ingen webshop endnu</option>
+          </select>
+        </div>
+        <div class="f-field">
+          <label for="f-rejse">Hvor er I i jeres rejse?</label>
+          <select id="f-rejse" name="rejse">
+            <option value="">Vælg…</option>
+            <option>Idéfase — vi er ikke startet endnu</option>
+            <option>Opstart — første salg er i hus</option>
+            <option>Vækst — vi vokser, men vil hurtigere</option>
+            <option>Etableret — vi vil skalere til næste niveau</option>
+            <option>Skalering — vi vil ind i nye markeder</option>
+          </select>
+        </div>
+        <div class="f-field">
+          <label for="f-oms">Nuværende årlig omsætning</label>
+          <select id="f-oms" name="omsaetning">
+            <option value="">Vælg…</option>
+            <option>Under 1 mio. kr.</option>
+            <option>1–5 mio. kr.</option>
+            <option>5–15 mio. kr.</option>
+            <option>15–50 mio. kr.</option>
+            <option>Over 50 mio. kr.</option>
+          </select>
+        </div>
+        <div class="f-field">
+          <label for="f-spend">Månedligt annonceforbrug</label>
+          <select id="f-spend" name="spend">
+            <option value="">Vælg…</option>
+            <option>Under 25.000 kr.</option>
+            <option>25.000–75.000 kr.</option>
+            <option>75.000–200.000 kr.</option>
+            <option>Over 200.000 kr.</option>
+            <option>Vi annoncerer ikke endnu</option>
+          </select>
+        </div>
+        <div class="f-field">
+          <label for="f-kilde">Hvor har du set eller hørt om os?</label>
+          <select id="f-kilde" name="kilde">
+            <option value="">Vælg…</option>
+            <option>Google-søgning</option>
+            <option>Sociale medier</option>
+            <option>Anbefaling fra netværk</option>
+            <option>Event, oplæg eller podcast</option>
+            <option>Andet</option>
+          </select>
+        </div>
+        <div class="f-field full">
+          <label for="f-udford">Beskriv jeres nuværende udfordringer</label>
+          <textarea id="f-udford" name="udfordringer" placeholder="Hvad står mellem jer og næste vækstetape?"></textarea>
+        </div>
+      </div>
+      <button class="btn" type="submit">Send og book vækstanalyse <span class="arr">→</span></button>
+      <p class="f-note">Vi vender tilbage hurtigst muligt — typisk inden for én arbejdsdag.</p>
+    </form>
+  </div>
+</section>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a class="logo" href="#top" style="display:inline-block;margin-bottom:1rem">Scale Consulting<em>.</em></a>
+        <p>Vækstpartner for skandinaviske brands.<br>Silkeborg, Danmark</p>
+        <p style="margin-top:.8rem"><a href="mailto:christian@scaleconsulting.dk">christian@scaleconsulting.dk</a><br><a href="tel:+4522998479">+45 22 99 84 79</a></p>
+      </div>
+      <div>
+        <h4>Services</h4>
+        <ul>
+          <li><a href="#svc-performance">Betalt annoncering</a></li>
+          <li><a href="#svc-brand">Brand &amp; positionering</a></li>
+          <li><a href="#svc-kreativ">Static ads at scale</a></li>
+          <li><a href="#svc-shopify">Shopify &amp; CRO</a></li>
+          <li><a href="#svc-data">Datalag &amp; analyse</a></li>
+          <li><a href="#svc-ekspansion">Internationalisering &amp; 3PL</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Hvem hjælper vi</h4>
+        <ul>
+          <li><a href="#hvem-etablerede">Etablerede brands</a></li>
+          <li><a href="#buildabrand">Opstart — Build a Brand</a></li>
+          <li><a href="#skandinavien">Skandinavisk ekspansion</a></li>
+          <li><a href="#metode">Vores metode</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Virksomhed</h4>
+        <ul>
+          <li><a href="#om">Om os</a></li>
+          <li><a href="#kontakt">Kontakt</a></li>
+          <li><a href="#">Handelsbetingelser</a></li>
+          <li><a href="#">Privatlivspolitik</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-base">
+      <span>© 2026 Scale Consulting ApS. Alle rettigheder forbeholdes.</span>
+      <span>Dansk perspektiv. Bygget til skandinavisk vækst.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Scroll-reveal (respekterer reduced motion via CSS)
+const io = new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+},{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
