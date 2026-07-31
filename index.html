@@ -1098,6 +1098,8 @@ if(form){
     btn.disabled = true; btn.textContent = 'Sender…';
     const data = Object.fromEntries(new FormData(form).entries());
     if(data.website && !/^https?:\/\//i.test(data.website)){ data.website = 'https://' + data.website.trim(); }
+    data.source = 'Vækstanalyse';
+    data.page = window.location.href;
     try{
       const r = await fetch('/api/lead', {
         method:'POST',
