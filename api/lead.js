@@ -1,14 +1,39 @@
-// /api/lead — modtager kontaktformularen og leverer den til Slack + Genrise Lab CRM
+// /api/lead — modtager kontaktformularen og leverer den til Slack, Genrise Lab CRM
+// og GoHighLevel (kontakt, Brand = Scale, tag brand-scale, note, opportunity i
+// Sales Pipeline / Klar til kald).
+//
+// Status (viser kun om miljøvariablerne er sat): https://scaleconsulting.dk/api/lead
 //
 // Miljøvariabler i Vercel (Settings -> Environment Variables):
 //   GENRISE_WEBHOOK_URL  https://dshxogtxantiriupcbsn.supabase.co/functions/v1/scaleconsulting-leads
 //   GENRISE_API_KEY      SCALECONSULTING_LEAD_SECRET (dedikeret token til dette site)
 //   SLACK_WEBHOOK_URL    valgfri, den eksisterende Slack incoming webhook
+//   GHL_API_TOKEN        Private Integration token fra GoHighLevel
+//   GHL_LOCATION_ID      B2WfucvN3q69pjs5vzVO
 //
 // Begge destinationer leveres uafhængigt af hinanden: fejler den ene,
 // blokerer den ikke den anden. Der svares kun fejl, hvis ALLE fejler.
 
+import { sendLeadToGHL, ghlConfigured } from './_lib/ghl-lead.js';
+
+const VERSION = 'v2-ghl';
+
 export default async function handler(req, res) {
+  if (req.method === 'GET') {
+    const set = (v) => ((process.env[v] || '').trim() ? 'ok' : 'MANGLER');
+    return res.status(200).json({
+      service: 'scaleconsulting lead endpoint',
+      deployed_version: VERSION,
+      env: {
+        SLACK_WEBHOOK_URL: set('SLACK_WEBHOOK_URL'),
+        GENRISE_WEBHOOK_URL: set('GENRISE_WEBHOOK_URL'),
+        GENRISE_API_KEY: set('GENRISE_API_KEY'),
+        GHL_API_TOKEN: set('GHL_API_TOKEN'),
+        GHL_LOCATION_ID: (process.env.GHL_LOCATION_ID || '').trim() || 'MANGLER',
+      },
+    });
+  }
+
   if (req.method !== 'POST') {
     return res.status(405).json({ error: 'Method not allowed' });
   }
@@ -42,10 +67,6 @@ export default async function handler(req, res) {
   const slackUrl = process.env.SLACK_WEBHOOK_URL;
   const crmUrl = process.env.GENRISE_WEBHOOK_URL;
   const crmKey = process.env.GENRISE_API_KEY;
-
-  if (!slackUrl && !crmUrl) {
-    return res.status(500).json({ error: 'Ingen destination konfigureret' });
-  }
 
   const tasks = [];
 
@@ -139,6 +160,46 @@ export default async function handler(req, res) {
     );
   }
 
+  // ---------- GoHighLevel ----------
+  if (ghlConfigured()) {
+    const en = (d.sprog || (source === 'Growth analysis' ? 'en' : 'da')) === 'en';
+    const lines = [];
+    if (udfordringer) lines.push(udfordringer);
+    const info = [
+      ['Webshop', website],
+      ['Platform', platform],
+      ['Rejse', rejse],
+      ['Omsætning', omsaetning],
+      ['Annonceforbrug', spend],
+      ['Hørt om os via', kilde],
+    ].filter(([, v]) => v).map(([k, v]) => `${k}: ${v}`);
+    if (info.length) lines.push(info.join('\n'));
+    if (en) lines.push('Udfyldt på engelsk.');
+
+    tasks.push(
+      sendLeadToGHL({
+        brand: 'Scale',
+        name: navn,
+        email,
+        phone: telefon,
+        company: virksomhed,
+        website,
+        message: lines.join('\n\n'),
+        source: en ? 'scaleconsulting.dk/en/kontakt' : 'scaleconsulting.dk/kontakt',
+      })
+        .then(() => ({ target: 'ghl', ok: true, status: 200 }))
+        .catch((err) => {
+          // GHL må aldrig få formularen til at fejle; fejlen logges i Vercel.
+          console.error('GHL sync fejlede', err);
+          return { target: 'ghl', ok: false, status: err.status || 0 };
+        })
+    );
+  }
+
+  if (!tasks.length) {
+    return res.status(500).json({ error: 'Ingen destination konfigureret' });
+  }
+
   const results = await Promise.all(tasks);
 
   results
@@ -150,5 +211,5 @@ export default async function handler(req, res) {
     return res.status(502).json({ error: 'Alle destinationer fejlede' });
   }
 
-  return res.status(200).json({ ok: true, delivered: results });
+  return res.status(200).json({ ok: true });
 }
